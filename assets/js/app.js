@@ -7,6 +7,24 @@ const dob = 2001;
 const isAdmin = false;
 const apprenants = ["Quentin","Flo"];
 const sac = {livre : 'BD Tintin', trousse: 'stylo', skills: ["bagarre","moto","Jeux vidéos"]};
+const disque = document.querySelector(".disque");
+const btnPause = document.getElementById("btnPause");
+const paragraphe = document.querySelector(".div1 p");
+
+setTimeout(() => {
+    paragraphe.style.backgroundColor = "blue";
+}, 1000);
+
+
+btnPause.addEventListener('click',()=>{
+    disque.classList.toggle("pause");
+    if(disque.classList.contains("pause")){
+        btnPause.textContent = "Play";
+    }else{
+        btnPause.textContent = "Pause";
+    }
+});
+console.log(disque);
 
 console.log(apprenants[0]);
 console.log(sac.skills[0]);
@@ -39,3 +57,4 @@ const calculeAge2 = ()=>{
     console.log(`Voici ton âge : ${age} ans`);
 }
 calculeAge2();
+
