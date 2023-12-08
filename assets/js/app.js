@@ -10,6 +10,11 @@ const sac = {livre : 'BD Tintin', trousse: 'stylo', skills: ["bagarre","moto","J
 const disque = document.querySelector(".disque");
 const btnPause = document.getElementById("btnPause");
 const paragraphe = document.querySelector(".div1 p");
+const audio = document.getElementById("audio");
+audio.addEventListener('ended', ()=>{
+    btnPause.textContent = "Play";
+    disque.classList.add("pause");
+})
 
 setTimeout(() => {
     paragraphe.style.backgroundColor = "blue";
@@ -20,8 +25,10 @@ btnPause.addEventListener('click',()=>{
     disque.classList.toggle("pause");
     if(disque.classList.contains("pause")){
         btnPause.textContent = "Play";
+        audio.pause();
     }else{
         btnPause.textContent = "Pause";
+        audio.play();
     }
 });
 console.log(disque);
